@@ -1,5 +1,7 @@
 package sixstringedbass.example;
 
+import sixstringedbass.example.configuration.ConfigurationHandler;
+import sixstringedbass.example.lib.Reference;
 import sixstringedbass.example.network.PacketHandler;
 import sixstringedbass.example.proxies.CommonProxy;
 import cpw.mods.fml.common.Mod;
@@ -11,19 +13,19 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 
-@Mod(modid = "StevesExample", name = "Steve's Example", version = "Lecture 1")
+@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
 @NetworkMod(channels = {"example"}, clientSideRequired = true, serverSideRequired = false, packetHandler = PacketHandler.class)
 public class StevesExample {
 
-	@Instance("StevesExample")
+	@Instance(Reference.MOD_ID)
 	public static StevesExample instance;
 	
-	@SidedProxy(clientSide = "sixstringedbass.example.proxies.ClientProxy", serverSide = "sixstringedbass.example.proxies.CommonProxy")
+	@SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
 	public static CommonProxy proxy;
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-		
+		ConfigurationHandler.init(event.getSuggestedConfigurationFile());
 	}
 	
 	@EventHandler

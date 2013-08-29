@@ -1,0 +1,21 @@
+[
+{
+  "modid": "StevesExample",
+  "name": "Steve's Example",
+  "description": "An example mod as a part of Vswe's summer courses",
+  "version": "Lecture 1",
+  "url": "http://courses.vswe.se/?course=3&lecture=23",
+  "updateUrl": "",
+  "authorList": [
+    "Vswe",
+    "SixStringedBass"
+  ],
+  "credits": "Thanks to Steve and all the students of these courses",
+  "logoFile": "",
+  "screenshots": [
+  ],
+  "parent":"",
+  "dependencies": [
+  ]
+}
+]
