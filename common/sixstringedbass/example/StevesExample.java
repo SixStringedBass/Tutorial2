@@ -1,6 +1,7 @@
 package sixstringedbass.example;
 
 import sixstringedbass.example.configuration.ConfigurationHandler;
+import sixstringedbass.example.item.Items;
 import sixstringedbass.example.lib.Reference;
 import sixstringedbass.example.network.PacketHandler;
 import sixstringedbass.example.proxies.CommonProxy;
@@ -26,11 +27,13 @@ public class StevesExample {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		ConfigurationHandler.init(event.getSuggestedConfigurationFile());
+		Items.init();
 	}
 	
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
-		
+		Items.addNames();
+		Items.registerRecipes();
 	}
 	
 	@EventHandler

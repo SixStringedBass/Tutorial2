@@ -2,6 +2,7 @@ package sixstringedbass.example.configuration;
 
 import java.io.File;
 
+import sixstringedbass.example.item.ItemInfo;
 import net.minecraftforge.common.Configuration;
 
 public class ConfigurationHandler {
@@ -15,8 +16,7 @@ public class ConfigurationHandler {
 		
 		config.load();
 		
-		ConfigurationSettings.TEST_INT = config.get(CATEGORY_KEYWORD, ConfigurationSettings.TEST_INT_CONFIGNAME, ConfigurationSettings.TEST_INT_DEFAULT).getInt();
-		ConfigurationSettings.TEST_STRING = config.get(CATEGORY_KEYWORD, ConfigurationSettings.TEST_STRING_CONFIGNAME, ConfigurationSettings.TEST_STRING_DEFAULT).getString();
+		ItemInfo.WAND_ID = config.getItem(ItemInfo.WAND_KEY, ItemInfo.WAND_DEFAULT).getInt() - 256;
 		
 		config.save();
 	}
